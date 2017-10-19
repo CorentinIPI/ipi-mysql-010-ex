@@ -7,7 +7,7 @@ USE entreprise;
 #3) Voir quel encodage et collation sont utilisés dans cette base
 SELECT @@character_set_database, @@collation_database;
 #4) Changer l'encodage et la collation pour qu'ils se basent sur UTF8
-ALTER DATABASE entreprise CHARACTER SET = 'utf8' COLLATE = utf8_general_ci;
+ALTER DATABASE entreprise CHARACTER SET = 'utf8' COLLATE = 'utf8_general_ci';
 #=========================================================================================================
 
 
@@ -86,8 +86,8 @@ SELECT * FROM Employe WHERE salaire > 1500;
 SELECT * FROM Employe ORDER BY matricule DESC;
 #6) Récupérer toutes les femmes de l'entreprise (1254)
 SELECT * FROM Employe WHERE sexe = 'F';
-#7) Récupérer tous les employés à temps partiel embauchés après le 1er janvier 2007 (1244)
-SELECT * FROM Employe WHERE dateEmbauche > 2007-01-01 AND tempsPartiel = TRUE;
+#7) Récupérer tous les employés à temps partiel embauchés après le 1er janvier 2007 (1243)
+SELECT * FROM Employe WHERE dateEmbauche > '2007-01-01' AND tempsPartiel = TRUE;
 #8) En une seule requête, compter le nombre de femme et d'homme de l'entreprise. (M : 1249, F : 1254)
 SELECT sexe, count(*) FROM Employe GROUP BY sexe;
 #9) Récupérer le nombre d'embauche par année : 
